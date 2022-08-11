@@ -1,0 +1,14 @@
+.input{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 15vh;
+    width: 99%;
+    margin: 2px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    font-size: 3rem;
+    font-family: 'Poppins';
+    overflow-x: hidden;
+    color: #fff;
+}

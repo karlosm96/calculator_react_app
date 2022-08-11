@@ -1,0 +1,21 @@
+.button-clear{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.6em;
+    font-weight: 300;
+    flex: 1 1;
+    height: 60px;
+    margin: 8px 3px;
+    background-color: #D96438;
+    cursor: pointer;
+    border: 2px solid #fff;
+    user-select: none;
+    border-radius: 2px;
+    opacity: 0.89;
+}
+
+.button-clear:hover{
+    opacity: 1;
+}
