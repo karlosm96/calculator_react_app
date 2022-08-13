@@ -3,16 +3,42 @@ import Button from './components/Button.jsx';
 import InputScreen from './components/InputScreen.jsx';
 import ClearButton from './components/Clear.jsx';
 import { useState } from 'react';
+import { evaluate } from 'mathjs';
 
 function App() {
   const [input, setInput] = useState('');
 
   const concatInput = (nInp) => {
-    setInput(input + nInp);
+    if(input==='Error' || input === Infinity){
+      setInput('');
+    }
+    else{
+      setInput(input + nInp);
+    }
   };
 
   const clearInput = (nInp) => {
     setInput(nInp);
+  };
+
+  const resultInput = () => {
+    console.log(input);
+    if(input){
+      if(input==='Error'){
+        setInput('');
+      }
+      else{
+        try{
+          setInput(evaluate(input));
+        }
+        catch(SyntaxError){
+          setInput('Error');
+        }
+      }
+    }
+    else{
+      alert('Debe ingresar al menos una opcion');
+    }
   };
 
   return (
@@ -38,9 +64,9 @@ function App() {
           <Button clicOperator={ concatInput }>+</Button>
         </div>
         <div className='row'>
-          <Button >=</Button>
+          <Button clicOperator={ resultInput }>=</Button>
           <Button clicOperator={ concatInput }>0</Button>
-          <Button clicOperator={ concatInput }>,</Button>
+          <Button clicOperator={ concatInput }>.</Button>
           <Button clicOperator={ concatInput }>/</Button>
         </div>
         <div className='row'>
